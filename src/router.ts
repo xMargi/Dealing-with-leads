@@ -26,6 +26,10 @@ router.get("/groups/:id", groupsController.show)
 router.put("/groups/:id", groupsController.update)
 router.delete("/groups/:id", groupsController.delete)
 
+router.get("/groups/:groupId/leads", groupLeadsController.getGroupLeads)
+router.post("/groups/:groupId/leads", groupLeadsController.addGroupLeads)
+router.delete("/groups/:groupId/leads/:leadId", groupLeadsController.removeGroupLeads)
+
 router.get("/campaigns", campaignsController.index)
 router.post("/campaigns", campaignsController.create)
 router.get("/campaigns/:id", campaignsController.show)
@@ -37,9 +41,6 @@ router.post("/campaigns/:campaignId/leads", campaignLeadsController.addLead)
 router.put("/campaigns/:campaignId/leads/:leadId", campaignLeadsController.updateLeadStatus)
 router.delete("/campaigns/:campaignId/leads/:leadId", campaignLeadsController.removeLead)
 
-router.get("/groups/:groupId/leads", groupLeadsController.getGroupLeads)
-router.post("/groups/:groupId/leads", groupLeadsController.addGroupLeads)
-router.delete("/groups/:groupId/leads/:leadId", groupLeadsController.removeGroupLeads)
 
 router.get("/status", async (req, res, next) => {
   try {
