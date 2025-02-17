@@ -23,7 +23,7 @@ export const CreateLeadRequestSchema = z.object({
     name: z.string(),
     email: z.string(),
     phone: z.string(),
-    status: LeadStatusSchema.optional()
+    status: LeadStatusSchema.optional().default("New")
 })
 
 export const UpdateLeadRequestSchema = z.object({
