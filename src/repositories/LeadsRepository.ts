@@ -7,7 +7,7 @@ export interface ILeadWhereParams{
     name?: {
         like?: string
         equals?: string
-        mode?: "Default" | "insensitive"
+        mode?: "default" | "insensitive"
     }
     status?: LeadStatus
 }

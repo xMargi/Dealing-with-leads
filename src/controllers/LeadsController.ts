@@ -1,8 +1,6 @@
 import { Handler } from "express";
-import { prisma } from "../database";
 import { CreateLeadRequestSchema, getLeadsRequestSchema, UpdateLeadRequestSchema } from "./schemas/LeadsRequestSchema";
 import { HttpError } from "../erros/HttpError";
-import { Prisma } from "@prisma/client";
 import { ILeadsRepository, ILeadWhereParams } from "../repositories/LeadsRepository";
 
 export class LeadsController {
