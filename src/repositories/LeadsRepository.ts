@@ -10,6 +10,7 @@ export interface ILeadWhereParams{
         mode?: "default" | "insensitive"
     }
     status?: LeadStatus
+    groupId?: number
 }
 
 export interface IFindLeadsParams{
@@ -18,6 +19,10 @@ export interface IFindLeadsParams{
     order?: "asc" | "desc"
     limit?: number
     offset?: number
+    include?: {
+        groups?: boolean
+        campaings?: boolean
+    }
 }
 
 export interface ICreateLeadAttributes{
