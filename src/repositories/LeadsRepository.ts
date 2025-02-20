@@ -11,6 +11,7 @@ export interface ILeadWhereParams{
     }
     status?: LeadStatus
     groupId?: number
+    campaignId?: number
 }
 
 export interface IFindLeadsParams{
