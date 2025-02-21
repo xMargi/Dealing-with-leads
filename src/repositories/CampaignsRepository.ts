@@ -1,6 +1,6 @@
 import { Campaign  } from "@prisma/client";
 
-export type LeadCampaignStatus = "New"|  "Engaged"| "FolloUp_Scheduled"| "Contacted"| "Qualified"| "Converted"| "Unresponsive"| "Disqualified"| "Re_Engaged"| "Opted_Out"
+export type LeadCampaignStatus = "New"|  "Engaged"| "FollowUp_Scheduled"| "Contacted"| "Qualified"| "Converted"| "Unresponsive"| "Disqualified"| "Re_Engaged"| "Opted_Out"
 
 
 export interface ICreateCampaignAttributes{

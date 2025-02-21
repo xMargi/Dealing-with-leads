@@ -64,7 +64,7 @@ model leadCampaign {
 enum LeadCampaignStatus {
   New
   Engaged
-  FolloUp_Scheduled
+  FollowUp_Scheduled
   Contacted
   Qualified
   Converted
