@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { campaignLeadsController, campaignsController, groupLeadsController, groupsController, leadsController } from "./repositories/prisma/container"
+import { campaignLeadsController, campaignsController, groupLeadsController, groupsController, leadsController } from "./container"
 
 
 
