@@ -1,6 +1,5 @@
 import { Handler } from "express";
 import { CreateLeadRequestSchema, getLeadsRequestSchema, UpdateLeadRequestSchema } from "./schemas/LeadsRequestSchema";
-import { HttpError } from "../erros/HttpError";
 import { leadsService } from "../services/LeadsService";
 
 export class LeadsController {
@@ -11,7 +10,7 @@ export class LeadsController {
             const query = getLeadsRequestSchema.parse(req.query)
             const { page = "1", pageSize = "10", name, status, sortBy = "name", order = "asc" } = query
 
-            const result = this.leadsService.getAllLeadsPaginated({
+            const result = await this.leadsService.getAllLeadsPaginated({
                 name, 
                 status,
                 page: +page,
@@ -38,8 +37,7 @@ export class LeadsController {
 
     show: Handler = async (req, res, next) => {
         try {
-            const lead = await this.leadsService.showLead(+req.params.id)
-
+            const lead = await this.leadsService.getLeadById(+req.params.id)
             res.json(lead)
         } catch (error) {
             next(error)
@@ -50,7 +48,7 @@ export class LeadsController {
         try {
             const id = Number(req.params.id)
             const body = UpdateLeadRequestSchema.parse(req.body)
-            const {leadUpdated} = await this.leadsService.updateLeadById(id, body)
+            const leadUpdated = await this.leadsService.updateLeadById(id, body)
 
             res.json(leadUpdated)
         } catch (error) {

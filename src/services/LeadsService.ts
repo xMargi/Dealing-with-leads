@@ -49,10 +49,9 @@ export class leadsService {
         return newLead
     }
 
-    async showLead(id: number) {
+    async getLeadById(id: number) {
         const lead = await this.leadsRepository.findById(id)
         if (!lead) throw new HttpError(404, "Lead não encontrado!")
-
         return lead
     }
 
@@ -75,7 +74,9 @@ export class leadsService {
 
         const leadUpdated = await this.leadsRepository.updateById(id, params)
 
-        return { leadExists, leadUpdated }
+        if(leadUpdated === null) throw new HttpError(404, "Não foi possivel fazer o update no lead")
+
+        return leadUpdated
     }
 
     async deleteById(id: number) {
@@ -84,8 +85,9 @@ export class leadsService {
         if(!findLead){
             throw new HttpError(404, "Lead não encontrado!")
         }
-
         const deletedLead = await this.leadsRepository.deleteById(id)
+
+        if(deletedLead === null) throw new HttpError(404, "Não foi possivel deletar o lead")
 
         return {deletedLead}
     }
