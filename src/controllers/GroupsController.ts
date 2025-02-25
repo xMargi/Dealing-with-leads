@@ -1,10 +1,10 @@
 import { Handler } from "express"
 import { CreateGroupRequestSchema, UpdateGroupRequestSchema } from "./schemas/GroupsRequestSchema"
-import {GroupsService} from "../services/GroupsService"
+import {groupsService} from "../services/GroupsService"
 
 export class GroupsController {
 
-    constructor(private readonly groupsService: GroupsService) { }
+    constructor(private readonly groupsService: groupsService) { }
 
     index: Handler = async (req, res, next) => {
         try {
