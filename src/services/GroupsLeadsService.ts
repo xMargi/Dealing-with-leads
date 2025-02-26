@@ -7,7 +7,7 @@ import { ILeadsRepository, ILeadWhereParams } from "../repositories/LeadsReposit
 export type typeSortBy = "name" | "status" | "createdAt"
 export type typeOrder = "asc" | "desc"
 
-export class GroupsLeadsService {
+export class groupsLeadsService {
     constructor(private readonly leadRepository: ILeadsRepository, private readonly groupsRepository: IGroupsRepository){}
     async getGroupById(groupId: number) {
         const group = await prisma.group.findUnique({

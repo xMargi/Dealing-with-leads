@@ -4,7 +4,6 @@ import { campaignLeadsController, campaignsController, groupLeadsController, gro
 
 
 const router = Router()
-
 router.get("/leads", leadsController.index)
 router.post("/leads", leadsController.create)
 router.get("/leads/:id", leadsController.show)
